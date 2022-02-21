@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const bp = require("body-parser");
 const qr = require('qrcode');
-
+//const html5qrcode = require('html5-qrcode')
 
 app.set('view engine', 'ejs');
 app.use(bp.urlencoded({extended: false}));//mengkonvert karakter
@@ -29,6 +29,14 @@ app.post('/scan',(req,res)=>{
         res.render('scan',{src});
     });
 })
+
+//baca qr code
+
+app.get('/read',(req,res)=>{
+    res.render('read')
+});
+
+
 
 ///menkonfigurasikan port yang didengar 
 const port = 5000;
